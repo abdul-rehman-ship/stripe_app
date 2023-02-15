@@ -1,5 +1,6 @@
 import axios from "axios"
-import getStripe from '../../get-stripe.js'
+import getStripe from '@/lib/get-stripe';
+
 
 export default function index() {
 
