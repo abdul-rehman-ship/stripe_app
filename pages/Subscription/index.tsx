@@ -13,7 +13,7 @@ export default function index() {
           data: { id },
         } = await axios.post('/api/checkout_sessions', {
           items: {
-            price: '50',
+            price: 'price_1MbblEEPYl4oiRULhEGEhPvg',
             quantity: 1,
           }
         });
