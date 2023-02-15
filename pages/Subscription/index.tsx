@@ -12,10 +12,10 @@ export default function index() {
         const {
           data: { id },
         } = await axios.post('/api/checkout_sessions', {
-          items: {
+          items: [{
             price: 'price_1MbblEEPYl4oiRULhEGEhPvg',
             quantity: 1,
-          }
+          }]
         });
     
         // Redirect to checkout
