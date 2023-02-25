@@ -2,18 +2,15 @@ import { useState } from "react";
 import Timer from "@components/Timer"
 
 
-
+import Cookies from 'js-cookie';
 function VideoPage() {
   
   
-    let url :any=sessionStorage.getItem("videoUrl")
-    let duration:any=sessionStorage.getItem("duration")
+    let url :any=Cookies.get("videoUrl")
+    let duration:any=Cookies.get("duration")
     const [showTimer, setShowTimer] = useState<boolean>(true);
   
-    if (typeof sessionStorage !== 'undefined') {
-       url =sessionStorage.getItem("videoUrl")
-       duration=sessionStorage.getItem("duration")
-    }
+  
     function handleTimerEnd() {
       
 
