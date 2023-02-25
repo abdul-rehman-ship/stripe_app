@@ -3,9 +3,10 @@ import { useRouter } from 'next/router';
 import {  ref, child, get,update } from "firebase/database";
 import {auth} from "@utils/firebase"
 
+// import { v4 as uuidv4 } from 'uuid';
+const uuid=require("uuid")
+const uuidv4=uuid.v4
 
-const uid:any= require("uuid")
-const uuidv4:any=uid.v4;
 import {database} from '@utils/firebase'
 const  All_Sessions:React.FC<any>=(props)=>{
 const[loading,setLoading]:any=useState(false)

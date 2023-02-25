@@ -51,7 +51,8 @@
     "stripe": "^11.11.0",
     "swiper": "^6.5.9",
     "swr": "^2.0.3",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^2.6.1",
