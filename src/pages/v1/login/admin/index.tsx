@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import style from '@styles/admin.module.css'
 import {toast,Toaster} from 'react-hot-toast';
 import {db} from '@utils/firebase'
