@@ -285,7 +285,7 @@ let time=`${hour%12}:${minute} ${ampm}`
      data ?
         
         Object.entries(data).map(([key,value]:any)=>{
-            return <div className='border-2 p-1 rounded-xl' key={key}  onClick={()=>handleSession(value.videoUri,value.durationMillis)}>
+            return <div className='border-2 p-1 rounded-xl cursor-pointer' key={key}  onClick={()=>handleSession(value.videoUri,value.durationMillis)}>
             <img
                          src={"/assets/images/vedioIcon.png"}
                          width={336}
