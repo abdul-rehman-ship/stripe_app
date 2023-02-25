@@ -5,7 +5,7 @@ import Timer from "@components/Timer"
 
 function VideoPage() {
   
-    const url =sessionStorage.getItem("videoUrl")
+    const url :any=sessionStorage.getItem("videoUrl")
     const duration:any=sessionStorage.getItem("duration")
     const [showTimer, setShowTimer] = useState<boolean>(true);
   
