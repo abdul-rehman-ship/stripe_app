@@ -1,4 +1,4 @@
-import BannerCard from "@components/common/banner-card";
+
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
 import Divider from "@components/ui/divider";
@@ -8,8 +8,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
 import React from "react";
-import Router from "next/dist/next-server/server/router";
-import { toast,Toaster } from 'react-hot-toast'
+
+
 
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
 	return (
 		<>
 			
-			<Toaster/>
+			
 			<Container >
 				<Sessions  id={sessionId} name={sessionName}/>
 				{/* <ProductsFeatured sectionHeading="text-featured-products" />

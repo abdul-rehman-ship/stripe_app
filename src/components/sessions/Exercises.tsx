@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import {  ref, child, get, set,update,onValue } from "firebase/database";
-import {auth, db} from "@utils/firebase"
+import {  ref, child, get,update } from "firebase/database";
+import {auth} from "@utils/firebase"
 
 import { v4 as uuidv4 } from 'uuid';
 import {database} from '@utils/firebase'

@@ -1,16 +1,16 @@
 import React, { useEffect,useState } from 'react'
 
-import { useRouter } from 'next/router'
+
 
 import { db } from "@utils/firebase";
-import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import Table from 'react-bootstrap/Table';
 import style from '../styles/vendor.module.css'
 
-import Link from 'next/link';
+
 import VendorNavbar from '../components/adminNavbar';
-import toast, { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -19,14 +19,9 @@ function VendorCustomers() {
     
     
     
-    const [searchString,setSearchString]=useState("")
-    const [searchValue,setSearchValue]=useState("")
+   
     
-    const [allEmployees,setallEmployees]:any=useState([])
- 
-const [assign,setAssign]:any=useState("none")
-    const router=useRouter()
-  const [allcustomers, setAllCustomers]: any = useState([]);
+  
     
   const [customers, setCustomers]: any = useState([]);
   const getData = async () => {
@@ -39,7 +34,7 @@ const [assign,setAssign]:any=useState("none")
     });
     arr.reverse()    
     await setCustomers(arr);
-    await setAllCustomers(arr)
+    
   };
   
 const getAllCustomers=async()=>{
@@ -50,7 +45,7 @@ const getAllCustomers=async()=>{
       arr.push({...doc.data(),id:doc.id})
 
     }
-    await setallEmployees(arr)
+    
     
   });
 }
@@ -59,42 +54,19 @@ const getAllCustomers=async()=>{
        getData()
        getAllCustomers()
     },[])
-    const onSearchChange=async(e:any)=>{
-        setCustomers([])
-        let arr:any=[]
-
-        if(e.target.value=="all"){
-            setCustomers(allcustomers)
-        }else{
-            setSearchString(e.target.value)
-            allcustomers.forEach((c:any)=>{
-                    if(e.target.value==c.status){
-                        arr.push(c)
-                    }
-            })
-            setCustomers(arr)
-        }
-       
-
-       
-        
-        
-    }
+   
 
     const handleClick=(id:any)=>{
         // dispatch(setCustomerEmail(email))
         // router.push(`/VendorCustomerDashboard`)
-        
+        console.log(id)
         
   }
-const convertDate=(date:any)=>{
-    return new Date(date.seconds * 1000).toLocaleDateString()
-}
 
 
   return (<>
     <VendorNavbar/>
-    <Toaster/>
+    
 
 
 

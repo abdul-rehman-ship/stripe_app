@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import {
 	IoHomeOutline,
 	IoCartOutline,
-	IoPersonOutline,
+	
 	IoSettingsOutline,
 	IoLogOutOutline,
 } from "react-icons/io5";

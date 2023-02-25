@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+
 import VendorNavbar from "../components/adminNavbar";
 import { db } from "@utils/firebase";
 import {
   getDownloadURL,
-  listAll,
+  
   ref,
-  uploadBytes,
+  
   uploadBytesResumable,
 } from "firebase/storage";
 
 import { storage } from "@utils/firebase";
 import {
-  arrayUnion,
+  
   collection,
-  getDocs,
+  
   addDoc,
   serverTimestamp,
 } from "firebase/firestore";
@@ -39,7 +39,7 @@ function VendorAddNewProduct() {
   const [images, setImage]:any = useState([]);
   
   
-  const router = useRouter();
+  
   useEffect(() => {
   
   }, []);
@@ -77,7 +77,7 @@ function VendorAddNewProduct() {
 
       const urls = await uploadFiles("images", images);
 
-      const uploadProduct = await addDoc(collection(db, "products"), {
+       await addDoc(collection(db, "products"), {
         name: productItem.name,
         price: productItem.price,
         description: productItem.description,

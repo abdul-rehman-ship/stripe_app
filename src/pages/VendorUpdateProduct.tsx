@@ -7,7 +7,6 @@ import { db } from "@utils/firebase";
 import {
   doc,
   collection,
-  addDoc,
   updateDoc,
   deleteDoc,
   getDocs
@@ -30,7 +29,7 @@ function VendorUpdateProduct() {
     salePrice: "",
   };
   const [productItem, setProductItem] = useState(initailState);
-  const [images, setImage] = useState([]);
+  
   
   
   const router = useRouter();

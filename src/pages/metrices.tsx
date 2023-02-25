@@ -2,17 +2,17 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
 import Divider from "@components/ui/divider";
-import Sessions from '@components/sessions/All_Sessions'
+
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { toast,Toaster } from 'react-hot-toast'
+
 import {useState,useEffect} from "react"
-import { onAuthStateChanged } from "firebase/auth";
+
 import { useRouter } from "next/router";
 
 import {auth,database} from "@utils/firebase"
 
-import {  ref, child, get, set,update,onValue } from "firebase/database";
+import {  ref, child, get } from "firebase/database";
 
 
 import React from "react";
@@ -56,6 +56,8 @@ router.push("/signin")
 
                         Object.entries(value).forEach(([key2,value2]:any)=>{
                             if(value2.endDate){
+								console.log(key2);
+								
                                 const date = new Date(Date.parse(value2.endDate));
                                 const today = new Date();
                                 const weekStart = new Date(today.setDate(today.getDate() - today.getDay()));
@@ -94,7 +96,7 @@ router.push("/signin")
     }
 	return (
 		<>
-		<Toaster/>
+		
 			
 			<Container >
 				<div className="min-h-screen pt-12">

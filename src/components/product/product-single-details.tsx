@@ -32,7 +32,8 @@ const ProductSingleDetails: React.FC<{data:any,isLoading:any}> = ({data,isLoadin
 	const { width } = useWindowSize();
 	
 	const { addItemToCart } = useCart();
-	const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
+	const [attributes, setAttributes]:any = useState<{ [key: string]: string }>({});
+	setAttributes({})
 	const [quantity, setQuantity] = useState(1);
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 	

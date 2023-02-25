@@ -4,13 +4,13 @@ import ForgetPasswordForm from "@components/auth/forget-password-form";
 import PageHeader from "@components/ui/page-header";
 import Subscription from "@components/common/subscription";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { toast,Toaster } from 'react-hot-toast'
+
 
 
 export default function ForgetPasswordPage() {
 	return (
 		<>
-		<Toaster/>
+		
 			<PageHeader pageHeader="Forget Password" />
 			<Container>
 				<div className="py-16 lg:py-20">

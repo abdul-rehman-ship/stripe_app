@@ -1,15 +1,15 @@
 import React, { useEffect ,useState} from 'react'
 
-import { useRouter } from 'next/router'
+
 import VendorNavbar from '../components/adminNavbar'
 import Link from 'next/link'
 import style from '../styles/vendor.module.css'
 
 
 import { db } from '@utils/firebase'
-import { collection ,getDocs, doc,updateDoc} from 'firebase/firestore'
+import { collection ,getDocs} from 'firebase/firestore'
 import VendorProductItem from '../components/VendorProductItem'
-import { toast,Toaster } from 'react-hot-toast'
+
 
 
 
@@ -17,16 +17,12 @@ export default function VendorDashboard() {
     
     
     const [products,setProducts]=useState([])
-    const [allProducts,setAllProducts]=useState([])
-   
-    const [unAssignOrders,setUnAssignOrders]:any=useState(0)
-    const [lowStock,setLowStock]:any=useState(0)
     
-    const [searchString,setSearchString]=useState("")
-    const [pending,setPending]:any=useState(0)
-    const [awaitngDelivery,setAwaitingDelivery]:any=useState(0)
-    const [pickedUp,setPickedUp]:any=useState(0)
-    const [returned,setReturned]:any=useState(0)
+   
+  
+    
+    
+  
 
     useEffect(() => {
       
@@ -42,7 +38,7 @@ export default function VendorDashboard() {
      
       let arr: any = [];
       const data = await getDocs(collection(db, "products"));
-      let low:any=0
+      
       data.forEach((doc: any) => {
         if(doc.data()){
           const prod={id:doc.id,...doc.data()}
@@ -55,8 +51,8 @@ export default function VendorDashboard() {
        
         
       });
-      setLowStock(low)
-     setAllProducts(arr)
+      
+     
       setProducts(arr)
 
      
@@ -66,34 +62,9 @@ export default function VendorDashboard() {
     
 
 
-    const onSearchChange=async(e:any)=>{
-      setSearchString(e.target.value)
-      if(e.target.value===""){
-        setProducts(allProducts)
-      }
-      
-    
-    }
-  const filter=async()=>{
-    setProducts([])
-    let arr:any=[]
-    allProducts.forEach((product:any)=>{
-      
-  
-      if(product.name.toLowerCase().includes(searchString.toLowerCase())){
-        arr.push(product)
-        
-      }
-  
-    })
-    
-    setProducts(arr)
-    
-  
-  }
   return (
     <>
-    <Toaster/>
+    
     
     <VendorNavbar/>
 

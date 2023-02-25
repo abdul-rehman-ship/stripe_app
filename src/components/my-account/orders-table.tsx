@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { fadeInTop } from "@utils/motion/fade-in-top";
-import Link from "@components/ui/link";
+
 import { useWindowSize } from "@utils/use-window-size";
-import { collection, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "@utils/firebase";
 import { useTranslation } from "next-i18next";
 import {useEffect,useState} from "react"

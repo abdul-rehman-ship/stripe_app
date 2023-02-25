@@ -154,7 +154,7 @@ export default function MobileMenu() {
 				<Scrollbar className="menu-scrollbar flex-grow mb-auto">
 					<div className="flex flex-col py-7 px-0 lg:px-2 text-heading text-white">
 						<ul className="mobileMenu">
-							{site_header.mobileMenu.map((menu, index) => {
+							{site_header.mobileMenu.map((menu:any, index) => {
 								const dept: number = 1;
 								const menuName: string = `sidebar-menu-${dept}-${index}`;
 

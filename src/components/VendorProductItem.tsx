@@ -1,4 +1,4 @@
-import React, {  useEffect } from 'react'
+import React from 'react'
 import style from '../styles/vendor.module.css'
 import Carousel from 'react-bootstrap/Carousel';
 import {useRouter} from 'next/router'
@@ -59,7 +59,7 @@ function VendorProductItem(props:any) {
 
     {product.description.length<60?<p className={style.description}> {product.description}</p>:<p className={style.description}>{product.description.substring(0,60)}...</p>}
        <div className='d-flex justify-content-between align-item-center'>
-       <p style={{fontWeight:'600'}}>In stock : {product.initialStock}</p>
+       <p >In stock : {product.initialStock}</p>
        
        <button className={`btn ${style.edit_btn} `} onClick={()=>handleClick(product.id)}>Edit</button>
        </div>

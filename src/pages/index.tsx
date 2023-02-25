@@ -5,9 +5,9 @@ import Divider from "@components/ui/divider";
 import Sessions from '@components/sessions/All_Sessions'
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { toast,Toaster } from 'react-hot-toast'
-import {useState,useEffect} from "react"
-import { onAuthStateChanged } from "firebase/auth";
+
+import {useEffect} from "react"
+
 import { useRouter } from "next/router";
 
 import {auth} from "@utils/firebase"
@@ -21,12 +21,12 @@ import React from "react";
 
 export default function Home() {
 	const router=useRouter()
-	const [user,setUser]:any=useState(null)
+	
 	
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if(user){
-				setUser(user);
+				
 
 
 			}else{
@@ -39,7 +39,7 @@ router.push("/signin")
 	
 	return (
 		<>
-		<Toaster/>
+		
 			
 			<Container >
 				<Sessions/>

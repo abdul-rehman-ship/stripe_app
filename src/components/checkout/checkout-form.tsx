@@ -4,18 +4,18 @@ import { useCart } from "@contexts/cart/cart.context";
 import { useCheckoutMutation } from "@framework/checkout/use-checkout";
 import Button from "@components/ui/button";
 
-import { ROUTES } from "@utils/routes";
+
 import { useTranslation } from "next-i18next";
 import { toast,Toaster } from "react-hot-toast";
 import {useState,useEffect} from "react"
-import { onAuthStateChanged } from "firebase/auth";
+
 import { useRouter } from "next/router";
 import {
-	arrayUnion,
+	
 	collection,
-	getDocs,
+	
 	addDoc,
-	serverTimestamp,
+	
   } from "firebase/firestore";
   import { db } from "@utils/firebase";
 
@@ -35,7 +35,7 @@ interface CheckoutInputType {
 }
 
 const CheckoutForm: React.FC = () => {
-	const { items, total, isEmpty } = useCart();
+	const { items } = useCart();
 	const router=useRouter()
 	const [user,setUser]:any=useState(null)
 	

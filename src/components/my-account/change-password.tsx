@@ -19,7 +19,7 @@ const defaultValues = {
 
 
 const ChangePassword: React.FC = () => {
-	const { mutate: changePassword, isLoading } = useChangePasswordMutation();
+	const { isLoading } = useChangePasswordMutation();
 
 	const {
 		register,

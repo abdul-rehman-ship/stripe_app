@@ -1,12 +1,12 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
-import PageHeader from "@components/ui/page-header";
+
+
 import ContactForm from "@components/common/form/contact-form";
 import ContactInfoBlock from "@containers/contact-info";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { toast,Toaster } from 'react-hot-toast'
+
 
 
 export default function ContactUsPage() {
@@ -16,7 +16,7 @@ export default function ContactUsPage() {
 	const { t } = useTranslation("common");
 	return (
 		< >
-		<Toaster/>
+		
 			{/* <PageHeader pageHeader="text-page-contact-us" /> */}
 			<Container>
 				<div className="my-14 lg:my-16 xl:my-20 px-0 pb-2 lg: xl:max-w-screen-xl mx-auto flex flex-col md:flex-row w-full" style={{transform:"translateY(-70px)",paddingTop:"8rem"}}>

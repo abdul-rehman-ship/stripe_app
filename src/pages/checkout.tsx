@@ -1,13 +1,13 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
-import PageHeader from "@components/ui/page-header";
+
+
 import CheckoutForm from "@components/checkout/checkout-form";
 import CheckoutCard from "@components/checkout/checkout-card";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Toaster } from 'react-hot-toast'
-import {useState,useEffect} from "react"
-import { onAuthStateChanged } from "firebase/auth";
+import {useEffect} from "react"
+
 import { useRouter } from "next/router";
 
 import {auth} from "@utils/firebase"
@@ -16,12 +16,12 @@ import {auth} from "@utils/firebase"
 export default function CheckoutPage() {
 	const router=useRouter()
 
-	const [user,setUser]:any=useState(null)
+	
 	
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if(user){
-				setUser(user);
+				
 
 
 			}else{

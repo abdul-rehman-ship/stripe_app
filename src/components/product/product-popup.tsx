@@ -6,9 +6,9 @@ import { useUI } from "@contexts/ui.context";
 import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
 import { useCart } from "@contexts/cart/cart.context";
-import { ProductAttributes } from "@components/product/product-attributes";
-import { generateCartItem } from "@utils/generate-cart-item";
-import usePrice from "@framework/product/use-price";
+
+
+
 import { getVariations } from "@framework/utils/get-variations";
 import { useTranslation } from "next-i18next";
 
@@ -22,7 +22,8 @@ export default function ProductPopup() {
 	const router = useRouter();
 	const { addItemToCart } = useCart();
 	const [quantity, setQuantity] = useState(1);
-	const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
+	const [attributes, setAttributes]:any = useState<{ [key: string]: string }>({});
+	setAttributes({})
 	const [viewCartBtn, setViewCartBtn] = useState<boolean>(false);
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 	// const { price, basePrice, discount } = usePrice({
@@ -31,7 +32,7 @@ export default function ProductPopup() {
 	// 	currencyCode: "USD",
 	// });
 	const variations = getVariations(data.variations);
-	const { slug, image, name, description } = data;
+	const {  name } = data;
 
 	const isSelected = !isEmpty(variations)
 		? !isEmpty(attributes) &&
@@ -58,13 +59,6 @@ export default function ProductPopup() {
 		router.push(`${ROUTES.PRODUCT}/${data.id}`, undefined, {
 			locale: router.locale,
 		});
-	}
-
-	function handleAttribute(attribute: any) {
-		setAttributes((prev) => ({
-			...prev,
-			...attribute,
-		}));
 	}
 
 	function navigateToCartPage() {

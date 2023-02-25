@@ -11,9 +11,11 @@ import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
 import axios from "axios"
 import getStripe from '../../lib/get-stripe';
-import { toast ,Toaster} from "react-hot-toast";
-import { auth } from "@utils/firebase";
-import {fetchSignInMethodsForEmail} from "firebase/auth"
+
+
+
+
+
 
 const SignUpForm: React.FC = () => {
 	const { t } = useTranslation();
@@ -56,6 +58,8 @@ const SignUpForm: React.FC = () => {
 		
 		
 			localStorage.setItem("email",email)
+			localStorage.setItem("name",name)
+
 			localStorage.setItem("pass",password)
 			localStorage.setItem("mobile","0")
 			redirectToCheckout()
@@ -66,7 +70,7 @@ const SignUpForm: React.FC = () => {
 		<div className="py-6 px-5 sm:p-8 bg-white mx-auto rounded-lg w-full sm:w-96 md:w-450px border border-gray-300">
 			<div className="text-center mb-9 pt-2.5">
 
-				<Toaster/>
+				
 				<div onClick={closeModal}>
 					
 				</div>
