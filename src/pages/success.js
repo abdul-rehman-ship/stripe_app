@@ -11,12 +11,15 @@ import {auth,database} from "../utils/firebase"
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import {toast ,Toaster} from "react-hot-toast"
 
+
+
 const Success = () => {
   const {
     query: { session_id },
   } = useRouter();
 const [created,setCreated]=useState(false)
 const [mobile,setMobile]=useState(false)
+
 
 const [randomNumber,setRandomNumber]=useState(0)
 
@@ -26,7 +29,7 @@ const [randomNumber,setRandomNumber]=useState(0)
   );
 
   const createUser=async()=>{
-    await createUserWithEmailAndPassword(auth,window.localStorage.getItem("email"),window.localStorage.getItem("pass")).catch((error)=>{
+    await createUserWithEmailAndPassword(auth,sessionStorage.getItem("email"),sessionStorage.getItem("pass")).catch((error)=>{
 toast.error(error.message)
     }).then(()=>{
       setCreated(true)
@@ -53,7 +56,7 @@ setMobile(true)
   }
   useEffect(() => {
     if (data) {
-      const isMobile=window.localStorage.getItem('mobile')
+      const isMobile=sessionStorage.getItem('mobile')
       if(isMobile==="1"){
 uploadData()
       }else{

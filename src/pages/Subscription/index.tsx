@@ -1,6 +1,6 @@
 import axios from "axios"
-import getStripe from '../../lib/get-stripe';
 
+import getStripe from '../../lib/get-stripe';
 
 export default function index() {
 
@@ -9,9 +9,9 @@ export default function index() {
 
 
     const redirectToCheckout = async () => {
-      localStorage.setItem("mobile","1")
-      localStorage.setItem("email","")
-      localStorage.setItem("pass","")
+      sessionStorage.setItem("mobile","1")
+      sessionStorage.setItem("email","")
+      sessionStorage.setItem("pass","")
 
         // Create Stripe checkout
         const {

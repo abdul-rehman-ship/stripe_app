@@ -57,11 +57,11 @@ const SignUpForm: React.FC = () => {
 		
 		
 		
-			localStorage.setItem("email",email)
-			localStorage.setItem("name",name)
+			sessionStorage.setItem("email",email)
+			sessionStorage.setItem("name",name)
 
-			localStorage.setItem("pass",password)
-			localStorage.setItem("mobile","0")
+			sessionStorage.setItem("pass",password)
+			sessionStorage.setItem("mobile","0")
 			redirectToCheckout()
 		
 		
