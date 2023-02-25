@@ -183,7 +183,7 @@ const minute = now.getMinutes();
 const ampm = hour >= 12 ? 'PM' : 'AM';
 let date=`${day}-${month}-${year}`
 let time=`${hour%12}:${minute} ${ampm}`
-const uniqueId = uuidv4().replace(/-/g, '').substr(0, 28);
+const uniqueId = new Date().toDateString()
 
 const newSession={
 

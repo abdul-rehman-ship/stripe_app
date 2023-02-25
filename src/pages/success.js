@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import {  ref, child, get, set,update,onValue } from "firebase/database";
 
-import { v4 as uuidv4 } from 'uuid';
+
 
 import { fetcher, shootFireworks } from '../lib/utils';
 import Link from 'next/link';
@@ -38,7 +38,7 @@ toast.error(error.message)
   } 
   const uploadData=async ()=>{
 setMobile(true)
-const uniqueId = uuidv4().replace(/-/g, '').substr(0, 28);
+const uniqueId = new Date().toDateString()
 let number=Math.random().toString().slice(2, 8)
  setRandomNumber( number)
 const newRef=ref(database,`MemberCodes/${uniqueId}`)
