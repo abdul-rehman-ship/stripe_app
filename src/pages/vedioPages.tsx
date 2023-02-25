@@ -5,11 +5,15 @@ import Timer from "@components/Timer"
 
 function VideoPage() {
   
-    const url :any=sessionStorage.getItem("videoUrl")
-    const duration:any=sessionStorage.getItem("duration")
+  
+    let url :any=sessionStorage.getItem("videoUrl")
+    let duration:any=sessionStorage.getItem("duration")
     const [showTimer, setShowTimer] = useState<boolean>(true);
   
-  
+    if (typeof sessionStorage !== 'undefined') {
+       url =sessionStorage.getItem("videoUrl")
+       duration=sessionStorage.getItem("duration")
+    }
     function handleTimerEnd() {
       
 
