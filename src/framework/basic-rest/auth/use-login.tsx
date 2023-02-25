@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { useMutation } from "react-query";
 import {auth} from "@utils/firebase"
 import {signInWithEmailAndPassword} from "firebase/auth"
-import { toast,Toaster } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 
 export interface LoginInputType {
   email: string;
