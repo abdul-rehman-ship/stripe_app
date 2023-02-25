@@ -26,7 +26,7 @@ const [randomNumber,setRandomNumber]=useState(0)
   );
 
   const createUser=async()=>{
-    await createUserWithEmailAndPassword(auth,localStorage.getItem("email"),localStorage.getItem("pass")).catch((error)=>{
+    await createUserWithEmailAndPassword(auth,window.localStorage.getItem("email"),window.localStorage.getItem("pass")).catch((error)=>{
 toast.error(error.message)
     }).then(()=>{
       setCreated(true)
@@ -53,7 +53,7 @@ setMobile(true)
   }
   useEffect(() => {
     if (data) {
-      const isMobile=localStorage.getItem('mobile')
+      const isMobile=window.localStorage.getItem('mobile')
       if(isMobile==="1"){
 uploadData()
       }else{

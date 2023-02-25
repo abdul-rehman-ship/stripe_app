@@ -3,8 +3,8 @@ import Timer from "@components/Timer"
 
 
 function VideoPage() {
-    const url = localStorage.getItem('videoUrl')?.toString();
-    const duration:any=localStorage.getItem('duration');
+    const url =window.localStorage.getItem('videoUrl')?.toString();
+    const duration:any=window.localStorage.getItem('duration');
     const [showTimer, setShowTimer] = useState<boolean>(true);
   
     function handleTimerEnd() {

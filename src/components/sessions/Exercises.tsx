@@ -160,8 +160,8 @@ router.push("/signin")
     
     const handleSession=(text:any,duration:any)=>{
         
-        localStorage.setItem('videoUrl', text);
-        localStorage.setItem('duration', duration);
+      window.localStorage.setItem('videoUrl', text);
+       window.localStorage.setItem('duration', duration);
 
         router.push({
             pathname:"/vedioPages"
