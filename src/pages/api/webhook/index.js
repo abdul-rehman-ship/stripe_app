@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import { buffer } from 'micro';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe("sk_test_51MbOhQEPYl4oiRUL7AGeaSZOxZAyg9tBvVG2dDntTeM8etjz4NXHrm9lu7icpj0Fi96MXvk62pS8aybPVY41G7ou00cSRZO8sC");
 
 export const config = {
   api: {
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       event = stripe.webhooks.constructEvent(
         rawBody.toString(),
         signature,
-        process.env.STRIPE_WEBHOOK_SECRET
+        "whsec_seDcfZI5UacRUZgbfykODJkfCh6GRaWV"
       );
     } catch (err) {
       console.log(`❌ Error message: ${err.message}`);
