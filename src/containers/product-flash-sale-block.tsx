@@ -55,7 +55,7 @@ const ProductsFlashSaleBlock: React.FC<ProductsProps> = ({
 	className = "mb-12 md:mb-14 xl:mb-16",
 	date = "2023-03-01T01:02:03",
 }) => {
-	const { data, isLoading, error } = useFlashSaleProductsQuery({
+	const { data, isLoading, error }:any = useFlashSaleProductsQuery({
 		limit: 10,
 	});
 	return (

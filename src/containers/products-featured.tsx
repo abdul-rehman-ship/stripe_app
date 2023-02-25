@@ -1,6 +1,6 @@
-import SectionHeader from "@components/common/section-header";
+
 import ProductOverlayCard from "@components/product/product-overlay-card";
-import { useFeaturedProductsQuery } from "@framework/product/get-all-featured-products";
+
 import Alert from "@components/ui/alert";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@utils/firebase";
@@ -15,8 +15,7 @@ interface ProductsProps {
 }
 
 const ProductsFeatured: React.FC<ProductsProps> = ({
-	sectionHeading,
-	categorySlug,
+	
 	className = "mb-12 md:mb-14 bg-black text-white xl:mb-16 mt-4",
 	variant = "left",
 }) => {
@@ -32,7 +31,7 @@ const ProductsFeatured: React.FC<ProductsProps> = ({
 		
 		return arr
 	  }
-	  const { data, isLoading, isError }:any = useQuery('users', fetchData);
+	  const { data, isError }:any = useQuery('users', fetchData);
 	
 
 	return (
