@@ -6,7 +6,7 @@ import Cookies from "js-cookie"
 
 
 import {database} from '@utils/firebase'
-const  All_Sessions:React.FC<any>=(props)=>{
+const  All_Sessions:React.FC<any>=(props:any)=>{
 const[loading,setLoading]:any=useState(false)
 
 const [data,setData]:any=useState(null)
