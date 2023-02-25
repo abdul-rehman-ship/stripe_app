@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import SearchIcon from "@components/icons/search-icon";
+
 import { siteSettings } from "@settings/site-settings";
 import HeaderMenu from "@components/layout/header/header-menu";
 import Logo from "@components/ui/logo"
