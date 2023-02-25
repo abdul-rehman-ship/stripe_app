@@ -1,10 +1,10 @@
-import BannerCard from "@components/common/banner-card";
+
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
 import Divider from "@components/ui/divider";
 import ProductsFeatured from "@containers/products-featured";
-import Subscription from "@components/common/subscription";
-import { homeThreeBanner as banner } from "@framework/static/banner";
+
+
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Home() {
