@@ -2,7 +2,7 @@ import Input from "@components/ui/input";
 import PasswordInput from "@components/ui/password-input";
 import Button from "@components/ui/button";
 import { useForm } from "react-hook-form";
-
+import Cookies from 'js-cookie'
 
 import { useUI } from "@contexts/ui.context";
 import {  SignUpInputType } from "@framework/auth/use-signup";
@@ -57,11 +57,11 @@ const SignUpForm: React.FC = () => {
 		
 		
 		
-			sessionStorage.setItem("email",email)
-			sessionStorage.setItem("name",name)
+		Cookies.set("email",email)
+		Cookies.set("name",name)
 
-			sessionStorage.setItem("pass",password)
-			sessionStorage.setItem("mobile","0")
+		Cookies.set("pass",password)
+		Cookies.set("mobile","0")
 			redirectToCheckout()
 		
 		

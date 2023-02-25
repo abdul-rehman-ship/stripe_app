@@ -11,6 +11,7 @@ import {auth,database} from "../utils/firebase"
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import {toast ,Toaster} from "react-hot-toast"
 
+import Cookies from 'js-cookie';
 
 
 const Success = () => {
@@ -29,7 +30,7 @@ const [randomNumber,setRandomNumber]=useState(0)
   );
 
   const createUser=async()=>{
-    await createUserWithEmailAndPassword(auth,sessionStorage.getItem("email"),sessionStorage.getItem("pass")).catch((error)=>{
+    await createUserWithEmailAndPassword(auth,Cookies.get("email"),Cookies.get("pass")).catch((error)=>{
 toast.error(error.message)
     }).then(()=>{
       setCreated(true)
@@ -56,7 +57,7 @@ setMobile(true)
   }
   useEffect(() => {
     if (data) {
-      const isMobile=sessionStorage.getItem('mobile')
+      const isMobile=Cookies.get('mobile')
       if(isMobile==="1"){
 uploadData()
       }else{

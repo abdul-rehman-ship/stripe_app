@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import {  ref, child, get,update } from "firebase/database";
 import {auth} from "@utils/firebase"
-
+import Cookies from "js-cookie"
 // import { v4 as uuidv4 } from 'uuid';
 const uuid=require("uuid")
 const uuidv4=uuid.v4
@@ -160,8 +160,8 @@ router.push("/signin")
     
     const handleSession=(text:any,duration:any)=>{
         
-      sessionStorage.setItem('videoUrl', text);
-       sessionStorage.setItem('duration', duration);
+        Cookies.set('videoUrl', text);
+        Cookies.set('duration', duration);
 
         router.push({
             pathname:"/vedioPages"
