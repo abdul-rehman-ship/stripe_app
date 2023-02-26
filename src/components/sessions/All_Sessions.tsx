@@ -49,16 +49,13 @@ const router:any=useRouter()
 })
   return (
     <div className='min-h-screen' >
-        <div className="flex justify-center  gap-12 pt-16">
-        <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Arthrose"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Arthrose")}>Arthrose</button>
-        <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Syndrome Femoro-Patellaire"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Syndrome Femoro-Patellaire")}>Syndrome Femoro-Patellaire</button>
-        <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Menisque Opere"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Menisque Opere")}>Menisque Opere</button>
-        <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Menisque Non Opere"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Menisque Non Opere")}>Menisque Non Opere</button>
+       <div className="flex flex-col md:flex-row justify-center md:gap-12 gap-8 pt-16">
+  <button className={`w-full md:w-auto border-2 p-3 pr-8 pl-8 font-semibold rounded-lg ${activeSession==="Arthrose"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Arthrose")}>Arthrose</button>
+  <button className={`w-full md:w-auto border-2 p-3 pr-8 pl-8 font-semibold rounded-lg ${activeSession==="Syndrome Femoro-Patellaire"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Syndrome Femoro-Patellaire")}>Syndrome Femoro-Patellaire</button>
+  <button className={`w-full md:w-auto border-2 p-3 pr-8 pl-8 font-semibold rounded-lg ${activeSession==="Menisque Opere"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Menisque Opere")}>Menisque Opere</button>
+  <button className={`w-full md:w-auto border-2 p-3 pr-8 pl-8 font-semibold rounded-lg ${activeSession==="Menisque Non Opere"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Menisque Non Opere")}>Menisque Non Opere</button>
+</div>
 
-
-       
-            
-        </div>
 
 
         <div className="grid grid-cols-2 sm:grid-cols-3  pb-12 mt-12 xl:grid-cols-4 2xl:grid-cols-5 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
