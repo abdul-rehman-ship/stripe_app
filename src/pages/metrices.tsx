@@ -31,6 +31,7 @@ export default function Home() {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if(user){
 				setUser(user);
+				loadData2()
 
 
 			}else{
@@ -39,9 +40,7 @@ router.push("/signin")
 		});
 		return () => unsubscribe();
 	  }, []);
-      useEffect(()=>{
-        loadData2()
-      })
+     
 	
       const loadData2=async()=>{
         const dbRef = ref(database);
@@ -51,12 +50,13 @@ router.push("/signin")
 
             Object.entries(snapshot.val()).forEach(([key,value]:any)=>{
                 
+				
                 if(user){
                     if(key===user.uid){
 						let arr:any=[]
 
                         Object.entries(value).forEach(([key2,value2]:any)=>{
-							console.log(key2);
+							
 							
 							
                             if(value2.endDate!==""){
@@ -78,7 +78,7 @@ router.push("/signin")
 								
                             }
                         })
-                        
+                        arr.reverse()
 						setCompletedSessions(arr)
                         
                         
@@ -113,7 +113,9 @@ router.push("/signin")
       <table className="table-auto w-full border-collapse">
         <thead>
           <tr className="bg-white text-black border rounded-md">
-            <th className="px-4 border  py-2">Category Name</th>
+		  <th className="px-4 border  py-2">Session</th>
+
+            <th className="px-4 border  py-2">Category </th>
             <th className="px-4 border py-2">Start Date</th>
             <th className="px-4 border py-2">End Date</th>
           </tr>
@@ -122,6 +124,8 @@ router.push("/signin")
 			{
 			completedSessions && completedSessions.length>0 &&  completedSessions.map((item:any)=>{
 					return  <tr className="bg-black text-white">
+					<td className="border px-4 text-white py-2">{item.sessionName}</td>
+
 					<td className="border px-4 text-white py-2">{item.category}</td>
 					<td className="border px-4  text-white py-2">{item.startDate}</td>
 					<td className="border px-4 text-white py-2">{item.endDate}</td>
