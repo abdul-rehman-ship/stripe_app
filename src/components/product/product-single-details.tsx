@@ -3,12 +3,12 @@ import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
 
 
-import { getVariations } from "@framework/utils/get-variations";
+
 
 import { useCart } from "@contexts/cart/cart.context";
 
 
-import isEmpty from "lodash/isEmpty";
+
 import Link from "@components/ui/link";
 import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
@@ -32,23 +32,17 @@ const ProductSingleDetails: React.FC<{data:any,isLoading:any}> = ({data,isLoadin
 	const { width } = useWindowSize();
 	
 	const { addItemToCart } = useCart();
-	const [attributes, setAttributes]:any = useState<{ [key: string]: string }>({});
-	setAttributes({})
+	
 	const [quantity, setQuantity] = useState(1);
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 	
 	if (isLoading) return <p>Loading...</p>;
-	const variations = getVariations(data?.variations);
+	
 
-	const isSelected = !isEmpty(variations)
-		? !isEmpty(attributes) &&
-		  Object.keys(variations).every((variation) =>
-				attributes.hasOwnProperty(variation)
-		  )
-		: true;
+	
 
 	function addToCart() {
-		if (!isSelected) return;
+		
 		// to show btn feedback while product carting
 		setAddToCartLoader(true);
 		setTimeout(() => {
@@ -149,10 +143,8 @@ const ProductSingleDetails: React.FC<{data:any,isLoading:any}> = ({data,isLoadin
 					<Button
 						onClick={addToCart}
 						variant="slim"
-						className={`w-full md:w-6/12 xl:w-full ${
-							!isSelected && "bg-gray-400 hover:bg-gray-400"
-						}`}
-						disabled={!isSelected}
+						className={`w-full md:w-6/12 xl:w-full`}
+						
 						loading={addToCartLoader}
 					>
 						<span className="py-2 3xl:px-8">Add to cart</span>

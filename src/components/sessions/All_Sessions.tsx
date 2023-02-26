@@ -47,7 +47,7 @@ const router:any=useRouter()
     })
   return (
     <div className='min-h-screen' >
-        <div className="flex justify-center  gap-12 pt-16">
+        <div className="flex justify-center  flex-wrap gap-12 pt-16">
         <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Arthrose"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Arthrose")}>Arthrose</button>
         <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Syndrome Femoro-Patellaire"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Syndrome Femoro-Patellaire")}>Syndrome Femoro-Patellaire</button>
         <button className={` border-2 p-3 pr-8 pl-8  font-semibold rounded-lg ${activeSession==="Menisque Opere"?"bg-white text-dark border-black " :"text-white"}`} onClick={()=>changeState("Menisque Opere")}>Menisque Opere</button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import isEmpty from "lodash/isEmpty";
 import { ROUTES } from "@utils/routes";
@@ -7,66 +7,58 @@ import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
 import { useCart } from "@contexts/cart/cart.context";
 
-
-
 import { getVariations } from "@framework/utils/get-variations";
 import { useTranslation } from "next-i18next";
 
 export default function ProductPopup() {
-	const { t } = useTranslation("common");
-	const {
-		modalData: { data },
-		closeModal,
-		openCart,
-	} = useUI();
-	const router = useRouter();
-	const { addItemToCart } = useCart();
-	const [quantity, setQuantity] = useState(1);
-	const [attributes, setAttributes]:any = useState<{ [key: string]: string }>({});
-	setAttributes({})
-	const [viewCartBtn, setViewCartBtn] = useState<boolean>(false);
-	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
-	// const { price, basePrice, discount } = usePrice({
-	// 	amount: data.sale_price ? data.sale_price : data.price,
-	// 	baseAmount: data.price,
-	// 	currencyCode: "USD",
-	// });
-	const variations = getVariations(data.variations);
-	const {  name } = data;
+  const { t } = useTranslation("common");
+  const {
+    modalData: { data },
+    closeModal,
+    openCart,
+  } = useUI();
+  const router = useRouter();
+  const { addItemToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
+  const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
+  const [viewCartBtn, setViewCartBtn] = useState<boolean>(false);
+  const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 
-	const isSelected = !isEmpty(variations)
-		? !isEmpty(attributes) &&
-		  Object.keys(variations).every((variation) =>
-				attributes.hasOwnProperty(variation)
-		  )
-		: true;
+  useEffect(() => {
+    setAttributes({});
+  }, [data]);
 
-	function addToCart() {
-		if (!isSelected) return;
-		// to show btn feedback while product carting
-		setAddToCartLoader(true);
-		setTimeout(() => {
-			setAddToCartLoader(false);
-			setViewCartBtn(true);
-		}, 600);
-		const item = data
-		addItemToCart(item, quantity);
-		
-	}
+  const variations = getVariations(data.variations);
+  const { name } = data;
 
-	function navigateToProductPage() {
-		closeModal();
-		router.push(`${ROUTES.PRODUCT}/${data.id}`, undefined, {
-			locale: router.locale,
-		});
-	}
+  const isSelected =
+    !isEmpty(variations) &&
+    Object.keys(variations).every((variation) => attributes.hasOwnProperty(variation));
 
-	function navigateToCartPage() {
-		closeModal();
-		setTimeout(() => {
-			openCart();
-		}, 300);
-	}
+  function addToCart() {
+    
+    // to show btn feedback while product carting
+    setAddToCartLoader(true);
+    setTimeout(() => {
+      setAddToCartLoader(false);
+      setViewCartBtn(true);
+    }, 600);
+    const item = data;
+    addItemToCart(item, quantity);
+  }
+
+  function navigateToProductPage() {
+    closeModal();
+    router.push(`${ROUTES.PRODUCT}/${data.id}`, undefined, {
+      locale: router.locale,
+    });
+  }
+
+  function navigateToCartPage() {
+    closeModal();
+    openCart();
+  }
+
 
 	return (
 		<div className="rounded-lg bg-black border-2 border-white">
@@ -133,7 +125,7 @@ export default function ProductPopup() {
 								className={`w-full h-11 md:h-12 px-1.5 ${
 									!isSelected && "bg-gray-400 hover:bg-gray-400"
 								}`}
-								disabled={!isSelected}
+								
 								loading={addToCartLoader}
 							>
 								{t("text-add-to-cart")}
