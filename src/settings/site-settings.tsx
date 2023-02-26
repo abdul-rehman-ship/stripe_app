@@ -56,12 +56,12 @@ export const siteSettings = {
 				path: "/checkout",
 				label: "menu-checkout",
 			},
-			// {
-			// 	id: 10,
-			// 	path: "/metrices",
-			// 	label: "metrices",
+			{
+				id: 10,
+				path: "/metrices",
+				label: "metrices",
 				
-			// },
+			},
 			{
 				id: 3,
 				path: "/my-account/orders",
@@ -82,12 +82,12 @@ export const siteSettings = {
 				label: "subscribe",
 				
 			},
-			// {
-			// 	id: 10,
-			// 	path: "/metrices",
-			// 	label: "metrices",
+			{
+				id: 10,
+				path: "/metrices",
+				label: "metrices",
 				
-			// },
+			},
 			{
 				id: 11,
 				path: "/",

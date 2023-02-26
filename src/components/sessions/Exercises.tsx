@@ -181,13 +181,12 @@ const minute = now.getMinutes();
 
 
 const ampm = hour >= 12 ? 'PM' : 'AM';
-let date=`${day}-${month}-${year}`
+let date=`${month}-${day}-${year}`
 let time=`${hour%12}:${minute} ${ampm}`
-const uniqueId = new Date().toDateString()
-
+const uniqueId = new Date().getTime().toString()
 const newSession={
 
-    catrgory:sessionCategory.category,
+    category:sessionCategory.category,
     id:uniqueId,
     sessionId:sessionCategory.id,
     sessionName:sessionCategory.session,
@@ -236,7 +235,7 @@ const minute = now.getMinutes();
 
 
 const ampm = hour >= 12 ? 'PM' : 'AM';
-let date=`${day}-${month}-${year}`
+let date=`${month}-${day}-${year}`
 let time=`${hour%12}:${minute} ${ampm}`
         const letSession={...session,status:"Completed",endDate:date,endTime:time}
         

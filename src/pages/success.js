@@ -38,7 +38,7 @@ toast.error(error.message)
   } 
   const uploadData=async ()=>{
 setMobile(true)
-const uniqueId = new Date().toDateString()
+const uniqueId = new Date().getTime().toString()
 let number=Math.random().toString().slice(2, 8)
  setRandomNumber( number)
 const newRef=ref(database,`MemberCodes/${uniqueId}`)

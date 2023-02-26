@@ -24,6 +24,7 @@ import React from "react";
 export default function Home() {
 	const router=useRouter()
 	const [user,setUser]:any=useState(null)
+	const [completedSessions,setCompletedSessions]:any=useState(null)
     
 	
 	useEffect(() => {
@@ -52,25 +53,33 @@ router.push("/signin")
                 
                 if(user){
                     if(key===user.uid){
-                   
+						let arr:any=[]
 
                         Object.entries(value).forEach(([key2,value2]:any)=>{
-                            if(value2.endDate){
+							console.log(key2);
+							
+							
+                            if(value2.endDate!==""){
 								console.log(key2);
 								
-                                const date = new Date(Date.parse(value2.endDate));
-                                const today = new Date();
-                                const weekStart = new Date(today.setDate(today.getDate() - today.getDay()));
-                                const weekEnd = new Date(today.setDate(today.getDate() - today.getDay() - 6));
-                                if (date >= weekStart && date <= weekEnd) {
-                                    console.log(value2);
-                                    
-
-                                }
+								arr.push(value2)
+								// const date = new Date(Date.parse(value2.endDate));
+								// const today = new Date();
+								// const weekStart = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() + 1);
+								// const weekEnd = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() + 7);
+								
+								
+								
+								// if (date >= weekStart && date <= weekEnd) {
+								  
+								  
+								  
+								// }
+								
                             }
                         })
                         
-
+						setCompletedSessions(arr)
                         
                         
                         
@@ -100,7 +109,32 @@ router.push("/signin")
 			
 			<Container >
 				<div className="min-h-screen pt-12">
+				<div className="overflow-x-auto">
+      <table className="table-auto w-full border-collapse">
+        <thead>
+          <tr className="bg-white text-black border rounded-md">
+            <th className="px-4 border  py-2">Category Name</th>
+            <th className="px-4 border py-2">Start Date</th>
+            <th className="px-4 border py-2">End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+			{
+			completedSessions && completedSessions.length>0 &&  completedSessions.map((item:any)=>{
+					return  <tr className="bg-black text-white">
+					<td className="border px-4 text-white py-2">{item.category}</td>
+					<td className="border px-4  text-white py-2">{item.startDate}</td>
+					<td className="border px-4 text-white py-2">{item.endDate}</td>
+				  </tr>
 
+				})
+			}
+          
+         
+         
+        </tbody>
+      </table>
+    </div>
                 </div>
 				{/* <ProductsFeatured sectionHeading="text-featured-products" />
 				<BannerCard
