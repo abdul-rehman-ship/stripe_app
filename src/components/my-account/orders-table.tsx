@@ -88,7 +88,7 @@ router.push("/signin")
 						<tbody className="text-sm lg:text-base">
 							{orders.map((item:any)=>{
 								
-							return	<tr className="border-b text-white border-gray-300 last:border-b-0">
+							return	<tr key={item.id} className="border-b text-white border-gray-300 last:border-b-0">
 								
 								<td className="text-start lg:text-center  text-white px-4 py-5 text-heading">
 									{item.name}

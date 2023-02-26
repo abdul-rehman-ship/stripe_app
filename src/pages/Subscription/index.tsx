@@ -33,9 +33,10 @@ export default function index() {
     
   return (
     
-      <div className="flex justify-center items-center h-screen bg-black">
-        <button className="px-4 py-2 rounded bg-white text-black font-bold" onClick={redirectToCheckout}>
-          Subscribe Mobile App
+      <div className="flex justify-center items-center h-screen bg-black flex-column">
+        <h3 className="text-white">We are excited to announce the launch of our new mobile app. To Subscribe our app click on button.</h3>
+        <button className="px-4 py-2 mt-8 rounded bg-white text-black font-bold" onClick={redirectToCheckout}>
+          Subscribe 
         </button>
       </div>
     

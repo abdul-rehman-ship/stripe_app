@@ -24,14 +24,18 @@ import React from "react";
 export default function Home() {
 	const router=useRouter()
 	const [user,setUser]:any=useState(null)
-	const [completedSessions,setCompletedSessions]:any=useState(null)
+	const [completedSessions,setCompletedSessions]:any=useState([])
     
 	
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if(user){
 				setUser(user);
-				loadData2()
+				if(completedSessions.length<=0){
+					loadData2()
+
+				}
+				
 
 
 			}else{
@@ -39,7 +43,7 @@ router.push("/signin")
 			}
 		});
 		return () => unsubscribe();
-	  }, []);
+	  },[user,completedSessions]);
      
 	
       const loadData2=async()=>{
@@ -111,7 +115,7 @@ router.push("/signin")
 				<div className="min-h-screen pt-12">
 				<div className="overflow-x-auto">
       <table className="table-auto w-full border-collapse">
-        <thead>
+        <thead className="p-8">
           <tr className="bg-white text-black border rounded-md">
 		  <th className="px-4 border  py-2">Session</th>
 
@@ -123,8 +127,8 @@ router.push("/signin")
         <tbody>
 			{
 			completedSessions && completedSessions.length>0 &&  completedSessions.map((item:any)=>{
-					return  <tr className="bg-black text-white">
-					<td className="border px-4 text-white py-2">{item.sessionName}</td>
+					return  <tr key={item.id} className="bg-black text-white">
+					<td  className="border px-4 text-white py-2">{item.sessionName}</td>
 
 					<td className="border px-4 text-white py-2">{item.category}</td>
 					<td className="border px-4  text-white py-2">{item.startDate}</td>

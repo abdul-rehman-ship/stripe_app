@@ -28,7 +28,7 @@ useEffect(()=>{
 
 
 
-})
+},[data,session,sessionKey,sessionCategory])
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if(user){
@@ -181,30 +181,32 @@ const minute = now.getMinutes();
 
 
 const ampm = hour >= 12 ? 'PM' : 'AM';
-let date=`${month}-${day}-${year}`
+let date=`${day}-${month}-${year}`
 let time=`${hour%12}:${minute} ${ampm}`
 const uniqueId = new Date().getTime().toString()
+setLoading(true)
+
 const newSession={
 
-    category:sessionCategory.category,
+    catrgory:sessionCategory?.category,
     id:uniqueId,
-    sessionId:sessionCategory.id,
-    sessionName:sessionCategory.session,
+    sessionId:sessionCategory?.id,
+    sessionName:sessionCategory?.session,
     startDate:date,
     startTime:time,
     status:"Started",
-    userId:user.uid,
+    userId:user?.uid,
     endDate:"",
     endTime:""
 }
 const newRef=ref(database,`UserSessions/${user.uid}/${uniqueId}`)
-setLoading(true)
 
-
+ 
+ 
 await update(newRef,{
 ...newSession
 }).then(()=>{
-    // setSession(newSession)
+    
 
     setLoading(false)
 
@@ -235,7 +237,7 @@ const minute = now.getMinutes();
 
 
 const ampm = hour >= 12 ? 'PM' : 'AM';
-let date=`${month}-${day}-${year}`
+let date=`${day}-${month}-${year}`
 let time=`${hour%12}:${minute} ${ampm}`
         const letSession={...session,status:"Completed",endDate:date,endTime:time}
         
@@ -265,7 +267,7 @@ let time=`${hour%12}:${minute} ${ampm}`
     }
   return (
     <div className='min-h-screen pt-12' >
-        {loading && <h1>Loading...</h1>}
+        {loading =="true"? <h1>Loading...</h1>:""}
         
 {
     session && session.status==="Started"?
