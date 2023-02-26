@@ -46,7 +46,7 @@ const router:any=useRouter()
         
 
         
-},[data])
+})
   return (
     <div className='min-h-screen' >
         <div className="flex justify-center  gap-12 pt-16">
