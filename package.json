@@ -5,8 +5,8 @@
   "scripts": {
     "clean": "rimraf \"{.next,dist,build,out,node_modules}\"",
     "dev": "next dev ",
-    "build": "  NODE_OPTIONS=--openssl-legacy-provider && react-scripts next build",
-    "start": "  NODE_OPTIONS=--openssl-legacy-provider && react-scripts  next start "
+    "build": "  NODE_OPTIONS=--openssl-legacy-provider  next build",
+    "start": "  NODE_OPTIONS=--openssl-legacy-provider   next start "
   },
   "dependencies": {
     "@fontsource/open-sans": "^4.3.0",
